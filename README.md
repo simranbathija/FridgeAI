@@ -55,7 +55,7 @@ Copy `FridgeAI.jsx` into a Claude artifact. It runs immediately — no setup.
 
 ```bash
 # Clone the repo
-git clone https://github.com/YOUR_USERNAME/fridgeai.git
+git clone https://github.com/simranbathija/FridgeAI.git
 cd fridgeai
 
 # Install
