@@ -150,6 +150,6 @@ MIT — do whatever you want with it.
 
 ## 🙋 About
 
-Built by Simran(https://www.linkedin.com/in/simran-bathija-1b9317123/) as part of an exploration into AI-augmented product workflows.
+Built by Simran Bathija(https://www.linkedin.com/in/simran-bathija-1b9317123/) as part of an exploration into AI-augmented product workflows.
 
 If this helped you, a ⭐ on GitHub means a lot.
