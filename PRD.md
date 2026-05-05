@@ -112,7 +112,94 @@ If a recipe needs 1-2 items the user doesn't have, generate a shopping list. Tap
 
 ---
 
-## 6. Success Metrics
+## 6. User Stories & Acceptance Criteria
+
+11 stories across 4 epics, sprint-ready for Jira / Linear import.
+
+### EPIC 1: Ingredient Input
+
+**FR-101: Quick text input flow** *(P0, 3 pts)*
+> *As a* hungry user, *I want to* open the app and immediately type my ingredients, *so that* I can get to recipes in under 60 seconds.
+
+Acceptance: App opens to input screen in < 2s • Comma-separated or newline parsing • Auto-capitalization & deduplication • Edits persist if user navigates back.
+
+**FR-102: Editable ingredient chips** *(P0, 5 pts)*
+> *As a* user, *I want to* edit my ingredients before generating recipes, *so that* I can fix typos and add anything missed.
+
+Acceptance: Tap chip to remove • Add button opens text input • Smart pairing suggestions ("You added paneer — also have onion?") • Edits persist across navigation.
+
+### EPIC 2: Pantry Check
+
+**FR-201: Tap-to-confirm pantry staples** *(P0, 5 pts)*
+> *As a* user, *I want to* tell the app which common staples I have without typing each one, *so that* I get better recipes without input fatigue.
+
+Acceptance: 12 staple items shown as tappable grid • Visual confirmation on selection • Selections feed into recipe generation prompt.
+
+### EPIC 3: Recipe Generation
+
+**FR-301: Generate 3 recipes via LLM** *(P0, 8 pts)*
+> *As a* user, *I want* 3 recipe options based on my ingredients, *so that* I have choice without being overwhelmed.
+
+Acceptance: Exactly 3 recipes returned • Each includes name, time, difficulty, calories, protein, full ingredient list, missing ingredients, step-by-step • Response P50 < 8s, P95 < 15s • Hard-rules layer blocks unsafe combos.
+
+**FR-302: Calorie & macro display** *(P0, 5 pts)*
+> *As a* health-conscious user, *I want to* see calories and protein for each recipe before committing, *so that* I can stay on my goals.
+
+Acceptance: Per-serving calories on every card • Macro breakdown on detail view • Within ±10% of USDA values • "Estimate" label visible.
+
+**FR-303: Recipe match score & ranking** *(P1, 3 pts)*
+> *As a* user, *I want to* see recipes ranked by what I already have, *so that* I can pick the easiest option fast.
+
+Acceptance: Match % calculated from ingredient overlap • No-missing recipes score 95-100% • 1-2 missing items score 75-90% • Recipes sorted high-to-low by match.
+
+### EPIC 4: Cook & Shop
+
+**FR-401: Step-by-step recipe view** *(P0, 5 pts)*
+> *As a* user actively cooking, *I want* the recipe broken into clear steps, *so that* I can follow along without scrolling and getting lost.
+
+Acceptance: Numbered steps with clear typography • Ingredient list with have/missing indicators • Chef's tip displayed • Back navigation preserves state.
+
+**FR-402: Auto-generated shopping list** *(P0, 5 pts)*
+> *As a* user, *I want* a shopping list when a recipe needs items I don't have, *so that* I can grab them on the way home.
+
+Acceptance: One-tap "Build shopping list" CTA on recipes with missing items • Shows item + quantity • Estimated total cost displayed.
+
+**FR-403: Copy / share shopping list** *(P0, 3 pts)*
+> *As a* user, *I want to* send my shopping list to WhatsApp or copy it, *so that* I can use it outside the app.
+
+Acceptance: Copy button works in all browsers (incl. sandboxed iframes via 3-tier fallback) • WhatsApp share opens with pre-filled text • Visual "Copied!" confirmation for 2s.
+
+**FR-404: Built-in cooking timers (V1.5)** *(P1, 5 pts)*
+> *As a* user, *I want* timers for steps that need them, *so that* I don't burn the food while glancing at my phone.
+
+Acceptance: Timer auto-suggested when step text mentions duration • Persists if user backgrounds the app • Audio + haptic notification on completion.
+
+**FR-405: Voice mode for hands-free cooking (V2)** *(P2, 13 pts)*
+> *As a* user with messy hands, *I want to* advance steps and start timers with voice, *so that* I don't touch the phone with onion-coated fingers.
+
+Acceptance: "Hey Fridge, next step" advances • Wake word reliable in kitchen noise • Toggleable on/off.
+
+---
+
+### Definition of Done (all stories)
+Code reviewed • Unit tests written (>80% coverage) • Manual QA on iOS + Android • Analytics events instrumented • Accessibility audited • Feature flag in place for gradual rollout.
+
+### Sprint Plan (8-week MVP build)
+
+| Sprint | Stories | Theme |
+|--------|---------|-------|
+| 1 | FR-101, FR-102 | Input flow |
+| 2 | FR-201 | Pantry UX |
+| 3 | FR-301, FR-302 | LLM pipeline + nutrition |
+| 4 | FR-303, FR-401 | Match score + recipe view |
+| 5 | FR-402, FR-403 | Shopping list + sharing |
+| 6 | FR-404 | Timers |
+| 7 | Polish, performance, analytics |
+| 8 | Beta release prep, instrumentation review |
+
+---
+
+## 7. Success Metrics
 
 | Metric | Target (6 months post-launch) | Why it matters |
 |--------|------------------------------|----------------|
@@ -124,7 +211,7 @@ If a recipe needs 1-2 items the user doesn't have, generate a shopping list. Tap
 
 ---
 
-## 7. Risks & Mitigations
+## 8. Risks & Mitigations
 
 | Risk | Likelihood / Impact | Mitigation |
 |------|---------------------|------------|
@@ -136,7 +223,7 @@ If a recipe needs 1-2 items the user doesn't have, generate a shopping list. Tap
 
 ---
 
-## 8. Open Questions
+## 9. Open Questions
 
 - Should V2 photo mode support video input (pan across the fridge) or only single photos? Video is richer but heavier.
 - Pricing model: ad-supported free vs freemium with $4.99/mo Pro? Pro unlocks unlimited recipes, voice mode, shopping list export.
@@ -145,7 +232,7 @@ If a recipe needs 1-2 items the user doesn't have, generate a shopping list. Tap
 
 ---
 
-## 9. Timeline (Indicative)
+## 10. Timeline (Indicative)
 
 | Phase | Duration | Deliverables |
 |-------|----------|--------------|
@@ -157,7 +244,7 @@ If a recipe needs 1-2 items the user doesn't have, generate a shopping list. Tap
 
 ---
 
-## 10. Appendix
+## 11. Appendix
 
 ### Competitive Landscape
 
